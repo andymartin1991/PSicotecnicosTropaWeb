@@ -27,6 +27,11 @@
 	width:100%;
 }
 
+#manita{
+	cursor:pointer; 
+	cursor:hand;
+}
+
 body{
 	background-color:#585858;
 }

@@ -12,10 +12,10 @@ while ($row = mysql_fetch_row($result)){
 ?>
 <p><b>ID de pregunta:</b>&nbsp;<i><?php echo $row[0];?></i>&nbsp;&nbsp;-&nbsp;&nbsp;
 <b>Fecha de creaci&oacute;n:</b>&nbsp;<i><?php echo $row[15];?></i>&nbsp;&nbsp;-&nbsp;&nbsp;
-<b>Ultima modificaci&oacute;n:</b>&nbsp;<i><?php if($row[18] == null || $row[18] == '' || $row[18] == '0000-00-00'){
+<b>Ultima modificaci&oacute;n:</b>&nbsp;<i><?php if($row[16] == null || $row[16] == '' || $row[16] == '0000-00-00'){
         echo 'NUNCA';
     }else{
-        echo $row[18];
+        echo $row[16];
     }?></i></p>
 <table border=0 bgcolor="#fff" style="border: 0px solid #000; border-collapse: collapse;" align="center">
 	<?php if($row[2]!= null || $row[2] !=''){?><tr>
@@ -59,7 +59,7 @@ while ($row = mysql_fetch_row($result)){
 <br/>
 <?php if($_GET['borrar'] == 'si'){?>
 <div align="center">
-	&iquest;Seguro que quieres borrar este alumno?
+	&iquest;Seguro que quieres borrar esta pregunta?
     <table border = 0>
     	<tr>
     		<td>
@@ -82,6 +82,7 @@ while ($row = mysql_fetch_row($result)){
                        break;
                 }
 	       ?>
+				<!-- Ver y despues borrar -->
     			<form action="administracion.php?opt=preguntas&tipo=<?php echo $tipo;?>&borrado=si&id_test=<?php echo $row[0];?>" method="post">
             		<?php
             			echo'
@@ -95,6 +96,7 @@ while ($row = mysql_fetch_row($result)){
         		</form>
     		</td>
     		<td>
+    			<!-- Ver -->
     			<form action="administracion.php?opt=preguntas&tipo=<?php echo $tipo;?>" method="post">
         			<?php
             			echo'

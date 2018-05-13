@@ -20,10 +20,10 @@ switch($row[1]){
 echo '<tr><td align="center">'.$row[0].'</td>
     <td align="center">'.$row[15].'</td>
         <td align="center">';
-    if($row[18] == null || $row[18] == '' || $row[18] == '0000-00-00'){
-        echo 'NUNCA';
+    if($row[16] == null || $row[16] == '' || $row[16] == '0000-00-00'){
+        echo "NUNCA";
     }else{
-        echo $row[18];
+        echo $row[16];
     }
  echo '</td>
 	<td align="center" valign="center">

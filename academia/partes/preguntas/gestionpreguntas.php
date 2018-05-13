@@ -6,23 +6,40 @@
     			if($_GET['tipo'] == null){
     			    include 'default.php';
     			}else{
-    			    if($_GET['anadir'] == 'si'){
-    			        include 'anadir.php';
-    			    }
-    			    else{
-    			        if($_GET['ver'] == 'si'){
-    			            include 'ver.php';
-    			        }else if($_GET['borrar'] == 'si'){
-    			            include 'ver.php';
-    			        }
-    			        else{
-    			            if($_GET['borrado'] == 'si'){
-    			                if(borrar_test($_GET['id_test']) != null){
-    			                    echo '<p align="center"><font style="color:red;">BORRADO</font></p>';
-    			                }
+    			    if($_GET['editar'] == 'si'){
+    			        
+    			        if($_GET["default"] != null){
+    			            if(editar_test($_POST["pregunta"], $_POST["a"], $_POST["b"], $_POST["c"], $_POST["d"], $_POST["explicacion"], $_POST["correcta"], $_POST["fechaput"], $_POST["id"],
+    			                $_POST["pre_php_js"], $_POST["a_php_js"], $_POST["b_php_js"], $_POST["c_php_js"], $_POST["d_php_js"], $_POST["sol_php_js"]) == "insertado"){
+    			                echo "insertado";
     			            }
-                            include 'gestiondefault.php';
+    			            /*if(modificarimagenes_test() != null){
+    			                echo "Modificado imagenes";
+    			            }*/
+    			         
+    			            include 'gestiondefault.php';
+    			        }else{
+    			            include 'editar.php';
     			        }
+    			    }else{
+        			    if($_GET['anadir'] == 'si'){
+        			        include 'anadir.php';
+        			    }
+        			    else{
+        			        if($_GET['ver'] == 'si'){
+        			            include 'ver.php';
+        			        }else if($_GET['borrar'] == 'si'){
+        			            include 'ver.php';
+        			        }
+        			        else{
+        			            if($_GET['borrado'] == 'si'){
+        			                if(borrar_test($_GET['id_test']) != null){
+        			                    echo '<p align="center"><font style="color:red;">BORRADO</font></p>';
+        			                }
+        			            }
+                                include 'gestiondefault.php';
+        			        }
+        			    }
     			    }
     			}
 			 ?>

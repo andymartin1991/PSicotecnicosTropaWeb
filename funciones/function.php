@@ -44,8 +44,8 @@
 					   return null;
 					}else {
 					//obtenemos los datos resultado de la consulta
-						$número_filas = mysql_num_rows($result);
-						if($número_filas != null && $número_filas >0){
+						$numero_filas = mysql_num_rows($result);
+						if($numero_filas != null && $numero_filas >0){
 							return $result;
 						}else{
 							return null;
@@ -81,8 +81,8 @@
 					   return null;
 					}else {
 					//obtenemos los datos resultado de la consulta
-						$número_filas = mysql_num_rows($result);
-						if($número_filas != null && $número_filas >0){
+						$numero_filas = mysql_num_rows($result);
+						if($numero_filas != null && $numero_filas >0){
 							return $result;
 						}else{
 							return null;
@@ -113,8 +113,8 @@
 					   return null;
 					}else {
 					//obtenemos los datos resultado de la consulta
-						$número_filas = mysql_num_rows($result);
-						if($número_filas != null && $número_filas >0){
+						$numero_filas = mysql_num_rows($result);
+						if($numero_filas != null && $numero_filas >0){
 							return $result;
 						}else{
 							return null;
@@ -145,8 +145,8 @@
 					   return null;
 					}else {
 					//obtenemos los datos resultado de la consulta
-						$número_filas = mysql_num_rows($result);
-						if($número_filas != null && $número_filas >0){
+						$numero_filas = mysql_num_rows($result);
+						if($numero_filas != null && $numero_filas >0){
 							return $result;
 						}else{
 							return null;
@@ -177,8 +177,8 @@
 					   return null;
 					}else {
 					//obtenemos los datos resultado de la consulta
-						$número_filas = mysql_num_rows($result);
-						if($número_filas != null && $número_filas >0){
+						$numero_filas = mysql_num_rows($result);
+						if($numero_filas != null && $numero_filas >0){
 							return $result;
 						}else{
 							return null;
@@ -260,8 +260,8 @@
 					   return null;
 					}else {
 					//obtenemos los datos resultado de la consulta
-						$número_filas = mysql_num_rows($result);
-						if($número_filas != null && $número_filas >0){
+						$numero_filas = mysql_num_rows($result);
+						if($numero_filas != null && $numero_filas >0){
 							return $result;
 						}else{
 							return null;
@@ -296,8 +296,8 @@
 					   return null;
 					}else {
 					//obtenemos los datos resultado de la consulta
-						$número_filas = mysql_num_rows($result);
-						if($número_filas != null && $número_filas >0){
+						$numero_filas = mysql_num_rows($result);
+						if($numero_filas != null && $numero_filas >0){
 							return $result;
 						}else{
 							return null;
@@ -533,8 +533,8 @@
                     return null;
                 }else {
                     //obtenemos los datos resultado de la consulta
-                    $número_filas = mysql_num_rows($result);
-                    if($número_filas != null && $número_filas >0){
+                    $numero_filas = mysql_num_rows($result);
+                    if($numero_filas != null && $numero_filas >0){
                         return $result;
                     }else{
                         return null;
@@ -590,8 +590,8 @@
                     return null;
                 }else {
                     //obtenemos los datos resultado de la consulta
-                    $número_filas = mysql_num_rows($result);
-                    if($número_filas != null && $número_filas >0){
+                    $numero_filas = mysql_num_rows($result);
+                    if($numero_filas != null && $numero_filas >0){
                         return $result;
                     }else{
                         return null;
@@ -618,8 +618,8 @@
 	                return null;
 	            }else {
 	                //obtenemos los datos resultado de la consulta
-	                $número_filas = mysql_num_rows($result);
-	                if($número_filas != null && $número_filas >0){
+	                $numero_filas = mysql_num_rows($result);
+	                if($numero_filas != null && $numero_filas >0){
 	                    return $result;
 	                }else{
 	                    return null;
@@ -646,6 +646,41 @@
 	                return null;
 	            }else {
 	                return true;
+	            }
+	        }
+	    }
+	}
+	
+	function editar_test($mod_pregunta, $mod_textoA, $mod_textoB, $mod_textoC, $mod_textoD, $mod_textores, $correcta, $fechaput, $id,
+	    $pre_php_js, $a_php_js, $b_php_js, $c_php_js, $d_php_js, $sol_php_js){
+	    $database = 'db694281392';
+	    $con = conexion();
+	    if($con != null){
+	        $basedato = mysql_select_db($database,$con);
+	        if (!$basedato){
+	            echo 'ERROR CONEXION CON BD: '.mysql_error();
+	            return null;
+	        }else{
+	            $sql = "
+	                UPDATE TEST SET FECHA_MODI_TEST = '".limpiarString($fechaput)."', PREGUNTA = '".limpiarString($mod_pregunta)."', 
+	                RES_A = '".limpiarString($mod_textoA)."', RES_B = '".limpiarString($mod_textoB)."', RES_C = '".limpiarString($mod_textoC)."', 
+                    RES_D = '".limpiarString($mod_textoD)."', EXPLICACION = '".limpiarString($mod_textores)."', SOLUCION = '".limpiarString($correcta)."', 
+                    IMG_PRE = '".limpiarString($pre_php_js)."', IMG_A = '".limpiarString($a_php_js)."', IMG_B = '".limpiarString($b_php_js)."', 
+                    IMG_C = '".limpiarString($c_php_js)."', IMG_D = '".limpiarString($d_php_js)."', IMG_EXPLI = '".limpiarString($sol_php_js)."' 
+                    WHERE ID_TEST = '".limpiarString($id)."'";
+	            $result = mysql_query ($sql);
+	            // verificamos que no haya error
+	            if($sql!=''){
+	                if (!$result){
+	                    echo 'La consulta SQL contiene errores'.mysql_error();
+	                    return null;
+	                }else {
+	                    //obtenemos los datos resultado de la consulta
+	                    $result = 'insertado';
+	                    return $result;
+	                }
+	            }else{
+	                return null;
 	            }
 	        }
 	    }

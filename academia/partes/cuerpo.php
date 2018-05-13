@@ -72,9 +72,9 @@
 					}
 				}
 				if($_GET['opt'] == 'preguntas' && $_GET['tipo'] != null){
-				    if($_GET['anadir'] == 'si' || $_GET['ver'] == 'si'){
+				    if($_GET['anadir'] == 'si' || $_GET['ver'] == 'si' || $_GET['editar'] == 'si'){
 				        echo '
-				        <form action="administracion.php?opt=preguntas&tipo='.$_GET['tipo'].'" method="post" align="center">
+				        <form id="volver_pre" action="administracion.php?opt=preguntas&tipo='.$_GET['tipo'].'" method="post" align="center">
 				            <input type="text" name="correo" value="'.$_POST['correo'].'" style="display:none;"/>
 				            <input type="text" name="contrasenya" value="'.$_POST['contrasenya'].'" style="display:none;"/>
 			                <input type="text" name="opt" value="'.$_POST['opt'].'" style="display:none;"/>

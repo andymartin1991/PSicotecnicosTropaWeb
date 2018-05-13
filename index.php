@@ -1,12 +1,15 @@
 <?php
-	include 'funciones/function.php';
+    include 'funciones/function.php';
 ?>
 <html>
 	<head>
+		<title>PsicotecnicosTropa</title>
 		<link rel="stylesheet" type="text/css" href="css/CSS.css" media="screen" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script type="text/javascript" src="funciones/functionsJS.js"></script>
+		<link rel="shortcut icon" href="http://s593975491.mialojamiento.es/PsicotecnicosTropa/img/LogoT.ico">
 	</head>
-	<body>
+	<body onload="deshabilitaRetroceso()">
 		<div class="centrar">
 			<?php
 				$nologer = false;
@@ -22,6 +25,7 @@
 					//echo '<p>Debes seleccionar su modalidad</p>';
 					$dentro = false;
 				}if($dentro == true){
+				    
 				$bool = false;
 					if(login($bool)!= null){
 						$result = login($bool);
@@ -51,6 +55,7 @@
 							}
 						}						
 					}else{
+					
 						$nologer=true;
 						include 'partes/login.php';
 					}
