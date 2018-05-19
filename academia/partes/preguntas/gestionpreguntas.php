@@ -11,7 +11,11 @@
     			        if($_GET["default"] != null){
     			            if(editar_test($_POST["pregunta"], $_POST["a"], $_POST["b"], $_POST["c"], $_POST["d"], $_POST["explicacion"], $_POST["correcta"], $_POST["fechaput"], $_POST["id"],
     			                $_POST["pre_php_js"], $_POST["a_php_js"], $_POST["b_php_js"], $_POST["c_php_js"], $_POST["d_php_js"], $_POST["sol_php_js"]) == "insertado"){
-    			                echo "insertado";
+    			            }
+    			            if($_POST["preguntaIMG"] != null){
+    			                echo "imagen en pregunta pasada";
+    			            }else{
+    			                echo "no imagen";
     			            }
     			            /*if(modificarimagenes_test() != null){
     			                echo "Modificado imagenes";

@@ -16,7 +16,8 @@ while ($row = mysql_fetch_row($result)){
 <b>Ultima modificaci&oacute;n:</b>&nbsp;<i><?php if($row[16] == null || $row[16] == '' || $row[16] == '0000-00-00'){
         echo '<label id="fechamod">NUNCA</label>';
     }else{
-        echo $row[16];
+        echo '<label id="fechamod">'.$row[16].'</label>';
+        
     }?></i></p>
     <form data-ajax="false" enctype="multipart/form-data" action="administracion.php?opt=preguntas&tipo=<?php echo $_GET['tipo'];?>&ver=no&anadir=no&editar=si&borrar=no&default=yes" method="post">
         <input type="hidden" id="fechaput" name ="fechaput" value="<?php echo $row[16];?>"></input>
@@ -41,6 +42,11 @@ while ($row = mysql_fetch_row($result)){
         	<?php if($row[3]!= null || $row[3] !=''){?><tr>
         		<td align="right"></td><td align="center"><i><img id="prelO" src="./../dirAcademias/<?php echo $row[14];?>/<?php echo $row[3];?>" style="max-width: 200px"/></i></td>
         	</tr><?php }?>
+        	<tr><td></td>
+        		<td align="center">
+        			<input type="file" name="preguntaIMG" id="preguntaIMG">
+        		</td>
+        	</tr>
         	<!-- <tr>
         		<td colspan ="2" align="center">
         			<output id="prel"></output><br/><input type="file" name="imgpre" id="pre"><br/><label class="btn">Quitar</label><?php //if($row[3] != null) echo "<br/><label class='btn'>Original</label>"; ?><hr/>
@@ -65,11 +71,16 @@ while ($row = mysql_fetch_row($result)){
         	<?php if($row[9]!= null || $row[9] !=''){if($row[17] == 'a'){echo '<tr>'; $correcta = 1;}else{echo '<tr>';}?>
         		<td align="right"></td><td align="center"><i><img id ="opAlO" src="./../dirAcademias/<?php echo $row[14];?>/<?php echo $row[9];?>" style="max-width: 200px"/></i></td>
         	</tr><?php }?>
+        	<tr><td></td>
+        		<td align="center">
+        			<input type="file" name="aIMG" id="aIMG">
+        		</td>
+        	</tr>
         	<!-- <tr>
         		<td colspan ="2" align="center">
         			<output id="opAl"></output><br/><input type="file" name="imgA" id="opA"/><br/><label class="btn">Quitar</label><?php //if($row[9] != null) echo "<br/><label class='btn'>Original</label>"; ?><hr/>
         		</td>
-        	</tr>-->
+        	</tr>--!
         	
         	
         	
@@ -90,6 +101,11 @@ while ($row = mysql_fetch_row($result)){
         	<?php if($row[10]!= null || $row[10] !=''){if($row[17] == 'b'){echo '<tr>'; $correcta = 2;}else{echo '<tr>';}?>
         		<td align="right"></td><td align="center"><i><img id="opBlO" src="./../dirAcademias/<?php echo $row[14];?>/<?php echo $row[10];?>" style="max-width: 200px"/></i></td>
         	</tr><?php }?>
+        	<tr><td></td>
+        		<td align="center">
+        			<input type="file" name="bIMG" id="bIMG">
+        		</td>
+        	</tr>
         	<!-- <tr>
         		<td colspan ="2" align="center">
         			<output id="opBl"></output><br/><input type="file" name="imgB" id="opB"/><br/><label class="btn">Quitar</label><?php //if($row[10] != null) echo "<br/><label class='btn'>Original</label>"; ?><hr/>
@@ -115,6 +131,11 @@ while ($row = mysql_fetch_row($result)){
         	<?php if($row[11]!= null || $row[11] !=''){if($row[17] == 'c'){echo '<tr>'; $correcta = 3;}else{echo '<tr>';}?>
         		<td align="right"></td><td align="center"><i><img id="opClO" src="./../dirAcademias/<?php echo $row[14];?>/<?php echo $row[11];?>" style="max-width: 200px"/></i></td>
         	</tr><?php }?>
+        	<tr><td></td>
+        		<td align="center">
+        			<input type="file" name="cIMG" id="cIMG">
+        		</td>
+        	</tr>
         	<!-- <tr>
         		<td colspan ="2" align="center">
         			<output id="opCl"></output><br/><input type="file" name="imgC" id="opC"/><br/><label class="btn">Quitar</label><?php //if($row[11] != null) echo "<br/><label class='btn'>Original</label>"; ?><hr/>
@@ -140,9 +161,14 @@ while ($row = mysql_fetch_row($result)){
         	<?php if($row[12]!= null || $row[12] !=''){if($row[17] == 'd'){echo '<tr>'; $correcta = 4;}else{echo '<tr>';}?>
         		<td align="right"></td><td align="center"><i><img id="opDlO" src="./../dirAcademias/<?php echo $row[14];?>/<?php echo $row[12];?>" style="max-width: 200px"/></i></td>
         	</tr><?php }?>
+        	<tr><td></td>
+        		<td align="center">
+        			<input type="file" name="dIMG" id="dIMG">
+        		</td>
+        	</tr>
         	<!-- <tr>
         		<td colspan ="2" align="center">
-        			<output id="opDl"></output><br/><input type="file" name="imgD" id="opD"/><br/><label class="btn">Quitar</label><?php //if($row[12] != null) echo "<br/><label class='btn'>Original</label>"; ?><hr/>
+        			<output id="opDl"></output> <br/><input type="file" name="imgD" id="opD"/><br/><label class="btn">Quitar</label><?php //if($row[12] != null) echo "<br/><label class='btn'>Original</label>"; ?><hr/>
         		</td>
         	</tr>-->
         	
@@ -166,6 +192,11 @@ while ($row = mysql_fetch_row($result)){
         	<?php if($row[13]!= null || $row[13] !=''){?><tr>
         		<td align="right"><b>Imagen explicaci&oacute;n)</b></td><td align="center"><i><img id="explO" src="./../dirAcademias/<?php echo $row[14];?>/<?php echo $row[13];?>" style="max-width: 200px"/></i></td>
         	</tr><?php }?>
+        	<tr><td></td>
+        		<td align="center">
+        			<input type="file" name="explicacionIMG" id="explicacionIMG">
+        		</td>
+        	</tr>
         	<!-- <tr>
         		<td colspan ="2" align="center">
         			<output id="expl"></output><br/><input type="file" name="imgexpl" id="exp"/><br/><label class="btn">Quitar</label><?php //if($row[13] != null) echo "<br/><label class='btn'>Original</label>"; ?><hr/>
@@ -442,54 +473,56 @@ while ($row = mysql_fetch_row($result)){
 	}
 
 
-	//document.getElementById('exp').addEventListener('change', exp, false);
-	//document.getElementById('opD').addEventListener('change', opD, false);
-	//document.getElementById('opC').addEventListener('change', opC, false);
-	//document.getElementById('opB').addEventListener('change', opB, false);
-	//document.getElementById('opA').addEventListener('change', opA, false);
-	//document.getElementById('pre').addEventListener('change', pre, false);
+	/*document.getElementById('exp').addEventListener('change', exp, false);
+	document.getElementById('opD').addEventListener('change', opD, false);
+	document.getElementById('opC').addEventListener('change', opC, false);
+	document.getElementById('opB').addEventListener('change', opB, false);
+	document.getElementById('opA').addEventListener('change', opA, false);
+	document.getElementById('pre').addEventListener('change', pre, false);*/
 
 	function modificar(){
 		var f = new Date();
 		var fecha=(f.getFullYear()+'-'+(f.getMonth() +1)+'-'+f.getDate());
+		document.getElementById('fechamod').innerHTML = fecha;
+	  	document.getElementById("fechaput").value = fecha;
+		
 		limpiar();
           document.getElementById('insertar_mod').setAttribute("style", "");
           document.getElementById('insertar_rev').setAttribute("style", "display:none;");
-
+        
           document.getElementById('tabla_mod').setAttribute("style", "border: 0px solid #000; border-collapse: collapse; display:none;");
           document.getElementById('tabla_rev').setAttribute("style", "border: 0px solid #000; border-collapse: collapse;");
-
+        
           document.getElementById('volver_pre').setAttribute("style", "display:none;");
           document.getElementById('volver_pre_rev').setAttribute("style", "");
-
+        
           if(document.getElementById('mod_pregunta') != null)document.getElementById('rev_pregunta').innerHTML = document.getElementById('mod_pregunta').value;
-		  if(document.getElementById('mod_textoA') != null)document.getElementById('rev_textoA').innerHTML = document.getElementById('mod_textoA').value;
-		  if(document.getElementById('mod_textoB') != null)document.getElementById('rev_textoB').innerHTML = document.getElementById('mod_textoB').value;
-		  if(document.getElementById('mod_textoC') != null)document.getElementById('rev_textoC').innerHTML = document.getElementById('mod_textoC').value;
-		  if(document.getElementById('mod_textoD') != null)document.getElementById('rev_textoD').innerHTML = document.getElementById('mod_textoD').value;
-		  if(document.getElementById('mod_textores') != null)document.getElementById('rev_textores').innerHTML = document.getElementById('mod_textores').value;
+          if(document.getElementById('mod_textoA') != null)document.getElementById('rev_textoA').innerHTML = document.getElementById('mod_textoA').value;
+          if(document.getElementById('mod_textoB') != null)document.getElementById('rev_textoB').innerHTML = document.getElementById('mod_textoB').value;
+          if(document.getElementById('mod_textoC') != null)document.getElementById('rev_textoC').innerHTML = document.getElementById('mod_textoC').value;
+          if(document.getElementById('mod_textoD') != null)document.getElementById('rev_textoD').innerHTML = document.getElementById('mod_textoD').value;
+          if(document.getElementById('mod_textores') != null)document.getElementById('rev_textores').innerHTML = document.getElementById('mod_textores').value;
+          /*
+          if(document.getElementById('prelO') != null)document.getElementById('rev_preguntaimg').innerHTML = '<i><img id ="prelO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('pre_php_js').value+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opAlO') != null)document.getElementById('rev_textoDimg').innerHTML = '<i><img id ="opAlO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('a_php_js').value+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opBlO') != null)document.getElementById('rev_textoAimg').innerHTML = '<i><img id ="opBlO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('b_php_js').value+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opClO') != null)document.getElementById('rev_textoBimg').innerHTML = '<i><img id ="opClO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('c_php_js').value+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opDlO') != null)document.getElementById('rev_textoCimg').innerHTML = '<i><img id ="opDlO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('d_php_js').value+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('explO') != null)document.getElementById('rev_textoresimg').innerHTML = '<i><img id ="explO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('sol_php_js').value+'" style="max-width: 200px"/></i>';
+          
+          if(document.getElementById('prel1') != null)document.getElementById('rev_preguntaimg').innerHTML = '<i><img id ="prelO" src="'+document.getElementById('prel1').getAttribute("src")+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opAl1') != null)document.getElementById('rev_textoAimg').innerHTML = '<i><img id ="opAlO" src="'+document.getElementById('opAl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opBl1') != null)document.getElementById('rev_textoBimg').innerHTML = '<i><img id ="opBlO" src="'+document.getElementById('opBl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opCl1') != null)document.getElementById('rev_textoCimg').innerHTML = '<i><img id ="opClO" src="'+document.getElementById('opCl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('opDl1') != null)document.getElementById('rev_textoDimg').innerHTML = '<i><img id ="opDlO" src="'+document.getElementById('opDl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
+          if(document.getElementById('expl1') != null)document.getElementById('rev_textoresimg').innerHTML = '<i><img id ="explO" src="'+document.getElementById('expl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
+          */
+          if(document.getElementById('a').checked)document.getElementById('verdea').setAttribute("bgcolor","#A9F5BC");
+          if(document.getElementById('b').checked)document.getElementById('verdeb').setAttribute("bgcolor","#A9F5BC");
+          if(document.getElementById('c').checked)document.getElementById('verdec').setAttribute("bgcolor","#A9F5BC");
+          if(document.getElementById('d').checked)document.getElementById('verded').setAttribute("bgcolor","#A9F5BC");
+
 		  
-		  if(document.getElementById('prelO') != null)document.getElementById('rev_preguntaimg').innerHTML = '<i><img id ="prelO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('pre_php_js').value+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opAlO') != null)document.getElementById('rev_textoDimg').innerHTML = '<i><img id ="opAlO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('a_php_js').value+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opBlO') != null)document.getElementById('rev_textoAimg').innerHTML = '<i><img id ="opBlO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('b_php_js').value+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opClO') != null)document.getElementById('rev_textoBimg').innerHTML = '<i><img id ="opClO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('c_php_js').value+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opDlO') != null)document.getElementById('rev_textoCimg').innerHTML = '<i><img id ="opDlO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('d_php_js').value+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('explO') != null)document.getElementById('rev_textoresimg').innerHTML = '<i><img id ="explO" src="./../dirAcademias/'+document.getElementById('name_php_js').value+'/'+document.getElementById('sol_php_js').value+'" style="max-width: 200px"/></i>';
-		  
-		  if(document.getElementById('prel1') != null)document.getElementById('rev_preguntaimg').innerHTML = '<i><img id ="prelO" src="'+document.getElementById('prel1').getAttribute("src")+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opAl1') != null)document.getElementById('rev_textoAimg').innerHTML = '<i><img id ="opAlO" src="'+document.getElementById('opAl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opBl1') != null)document.getElementById('rev_textoBimg').innerHTML = '<i><img id ="opBlO" src="'+document.getElementById('opBl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opCl1') != null)document.getElementById('rev_textoCimg').innerHTML = '<i><img id ="opClO" src="'+document.getElementById('opCl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('opDl1') != null)document.getElementById('rev_textoDimg').innerHTML = '<i><img id ="opDlO" src="'+document.getElementById('opDl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
-		  if(document.getElementById('expl1') != null)document.getElementById('rev_textoresimg').innerHTML = '<i><img id ="explO" src="'+document.getElementById('expl1').getAttribute("src")+'" style="max-width: 200px"/></i>';
-		  
-		  if(document.getElementById('a').checked)document.getElementById('verdea').setAttribute("bgcolor","#A9F5BC");
-		  if(document.getElementById('b').checked)document.getElementById('verdeb').setAttribute("bgcolor","#A9F5BC");
-		  if(document.getElementById('c').checked)document.getElementById('verdec').setAttribute("bgcolor","#A9F5BC");
-		  if(document.getElementById('d').checked)document.getElementById('verded').setAttribute("bgcolor","#A9F5BC");
-		
-		  document.getElementById('fechamod').innerHTML = fecha;
-		  document.getElementById("fechaput").value = fecha;
 	  }
 
       function volver(){
